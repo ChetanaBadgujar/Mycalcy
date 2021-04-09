@@ -1,0 +1,134 @@
+<html>
+
+<head>
+</head> 
+<!-- applying CSS -->
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body {
+        background-color: #273342;
+    }
+
+    .container {
+        background: #0a0a0a;
+        box-shadow: 15px 2px 25px #0a0a0a;
+
+    }
+
+    .main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 7px;
+    }
+
+    .button {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        font-size: 35px;
+        border: none;
+        /* margin-left:10px; */
+        position: relative;
+        /* left:12px; */
+        margin: 6px;
+        right: -4px;
+        cursor: pointer;
+        transition: 0.8s;
+    }
+
+    .button:hover {
+        opacity: 1;
+        background-color: #171111;
+    }
+
+    .button:focus {
+        outline: none;
+        border: none;
+    }
+
+    input::placeholder {
+        color: #0a0a0a;
+    }
+
+    .operator {
+        background-color: #cf1b33;
+        color: whitesmoke;
+    }
+
+    .operand {
+        background-color: #3a3b47;
+        color: white;
+    }
+
+    .textview {
+        width: 400px;
+        padding: 6px;
+        padding-right: 20px;
+        font-size: 35px;
+        height: 80px;
+        border: none;
+        background-color: rgb(207, 27, 42);
+        color: #0a0a0a;
+        text-align: right;
+        box-shadow: 15px 2px 25px #0a0a0a;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <!-- <h1>Calculator</h1> -->
+        <form>
+            <input class="textview" type="text" placeholder="0" id="result" />
+        </form>
+        <div class="container">
+            <!-- create a table -->
+            <table cellspacing="5">
+                <td><input class="button operand" type="button" value="1" onclick="dis('1')" /> </td>
+                <td><input class="button operand" type="button" value="2" onclick="dis('2')" /> </td>
+                <td><input class="button operand" type="button" value="3" onclick="dis('3')" /> </td>
+                <td><input class="button operator" type="button" value="/" onclick="dis('/')" /> </td>
+                </tr>
+                <tr>
+                    <td><input class="button operand" type="button" value="4" onclick="dis('4')" /> </td>
+                    <td><input class="button operand" type="button" value="5" onclick="dis('5')" /> </td>
+                    <td><input class="button operand" type="button" value="6" onclick="dis('6')" /> </td>
+                    <td><input class="button operator" type="button" value="-" onclick="dis('-')" /> </td>
+                </tr>
+                <tr>
+                    <td><input class="button operand" type="button" value="7" onclick="dis('7')" /> </td>
+                    <td><input class="button operand" type="button" value="8" onclick="dis('8')" /> </td>
+                    <td><input class="button operand" type="button" value="9" onclick="dis('9')" /> </td>
+                    <td><input class="button operator" type="button" value="+" onclick="dis('+')" /> </td>
+                </tr>
+                <tr>
+                    <td><input class="button operator" type="button" value="c" onclick="clr()" /></td>
+                    <td><input class="button operand" type="button" value="0" onclick="dis('0')" /> </td>
+                    <td><input class="button operator" type="button" value="=" onclick="solve()" /> </td>
+                    <td><input class="button operator" type="button" value="*" onclick="dis('*')" /> </td>
+                </tr>
+            </table>
+            </table>
+        </div>
+</body>
+<!-- javascript -->
+<script>
+    function dis(val) {
+        document.getElementById("result").value += val
+    }
+    function solve() {
+        let x = document.getElementById("result").value
+        let y = eval(x)
+        document.getElementById("result").value = y
+    }
+    function clr() {
+        document.getElementById("result").value = ""
+    }
+</script>
+
+</html>
